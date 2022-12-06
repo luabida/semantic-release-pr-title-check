@@ -1,10 +1,13 @@
 name: 'Semantic Release PT Title Check'
 author: 'Luã Bida Vacaro'
 description: 'Checks for Angular commit message format in the Pull Request title'
+branding:
+  icon: check-circle
+  color: green
 
 runs:
   using: 'node16'
   main: 'dist/main.js'
-  branding:
-    icon: check-circle
-    color: green
+
+
+
