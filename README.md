@@ -17,8 +17,9 @@ Checks for [Angular commit message format](https://github.com/angular/angular/bl
   └─> Commit Type: build|ci|chore|docs|feat|fix|perf|refactor|test|BREAKING CHANGE
 ```
 
-|*build*|Changes that affect the build system or external dependencies|
+|*tag*|*Usage*|
 |:---:|:---------:|
+|*build*|Changes that affect the build system or external dependencies|
 |*ci*|Changes to CI configuration files and scripts|
 |*docs*|Documentation only changes|
 |*feat*|A new feature|
