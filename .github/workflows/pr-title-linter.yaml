@@ -1,0 +1,15 @@
+name: PR Title Linter
+on:
+  pull_request:
+    types: [assigned, unassigned, labeled, unlabeled, opened, reopened, edited, synchronize]
+
+jobs:
+  pr-linter:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+      with:
+        ref: ${{ secrets.GITHUB_REF }}
+    - uses: luabida/semantic-release-pr-title-check
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
