@@ -32,7 +32,5 @@ jobs:
       - name: Run main.js
         uses: ./ 
 
-      # - name: Use Action
-      #   uses: luabida/semantic-release-pr-title-check
-      #   env:
-      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Semantic Release PT Title Check
+        uses: luabida/semantic-release-pr-title-check@action-test
