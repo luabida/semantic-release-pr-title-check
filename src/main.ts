@@ -5,4 +5,13 @@ function getTitle(): string {
     return `${context.payload.pull_request?.title}`
 }
 
-console.log(getTitle())
+function main(): void {
+
+    const title: string = getTitle() 
+
+    if (title) {
+        console.log(title)
+    }
+}
+
+main()
