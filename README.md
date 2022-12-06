@@ -2,7 +2,13 @@
 
 Checks for [Angular commit message format](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-format) in the Pull Request Title.
 
-## PR Title Format:
+## Usage
+```
+
+
+```
+
+## PR Title Format
 ```
 <type>(<scope>): <short summary>
   │       │             │
@@ -17,15 +23,17 @@ Checks for [Angular commit message format](https://github.com/angular/angular/bl
   └─> Commit Type: build|ci|chore|docs|feat|fix|perf|refactor|test|BREAKING CHANGE
 ```
 
+## Tags
+
 |*tag*|*Usage*|
 |:---:|:---------:|
-|*build*|Changes that affect the build system or external dependencies|
-|*ci*|Changes to CI configuration files and scripts|
-|*docs*|Documentation only changes|
-|*feat*|A new feature|
-|*fix*|A bug fix|
-|*perf*|A code change that improves performance|
-|*refactor*|A code change that neither fixes a bug nor adds a feature|
-|*test*|Adding missing tests or correcting existing tests|
-|*BREAKING CHANGE*|A code change that breaks the current version|
+|**build**|Changes that affect the build system or external dependencies|
+|**ci**|Changes to CI configuration files and scripts|
+|**docs**|Documentation only changes|
+|**feat**|A new feature|
+|**fix**|A bug fix|
+|**perf**|A code change that improves performance|
+|**refactor**|A code change that neither fixes a bug nor adds a feature|
+|**test**|Adding missing tests or correcting existing tests|
+|**BREAKING CHANGE**|A code change that breaks the current version|
 

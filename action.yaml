@@ -1,0 +1,8 @@
+name: 'Semantic Release PT Title Check'
+author: 'Luã Bida Vacaro'
+description: 'Checks for Angular commit message format in the Pull Request title'
+
+runs:
+  using: 'node18'
+  main: 'dist/main.js'
+

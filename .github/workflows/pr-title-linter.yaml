@@ -2,14 +2,36 @@ name: PR Title Linter
 on:
   pull_request:
     types: [assigned, unassigned, labeled, unlabeled, opened, reopened, edited, synchronize]
+    branches:
+      - main
 
 jobs:
-  pr-linter:
+  pr-linter-test:
+    name: PR Linter Test
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@master
-      with:
-        ref: ${{ secrets.GITHUB_REF }}
-    - uses: luabida/semantic-release-pr-title-check
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/checkout@v3
+        with:
+          ref: ${{ secrets.GITHUB_REF }}
+
+      - name: Use Node.js ^18.0
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18.x
+          cache: 'npm'
+          cache-dependency-path: package-lock.json
+      
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+        
+      - name: Run main.js
+        uses: ./ 
+
+      # - name: Use Action
+      #   uses: luabida/semantic-release-pr-title-check
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
