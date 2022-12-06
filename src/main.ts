@@ -1,4 +1,8 @@
 import * as core from '@actions/core'
-import * as github from '@actions/github'
+import { context } from '@actions/github'
 
-console.log(github.context.payload.pull_request?.title)
+function getTitle(): string {
+    return `${context.payload.pull_request?.title}`
+}
+
+console.log(getTitle())
