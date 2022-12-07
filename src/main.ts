@@ -1,17 +1,20 @@
-import * as core from '@actions/core'
 import { context } from '@actions/github'
+import { linter } from './linter'
 
-function getTitle(): string {
-    return `${context.payload.pull_request?.title}`
-}
+function run() {
+    try {
+        const pullRequestTitle: string = context.payload.pull_request?.title;
 
-function main(): void {
+        if (!pullRequestTitle) {
+            throw("Title not found");
+        };
 
-    const title: string = getTitle() 
+        linter(pullRequestTitle);
 
-    if (title) {
-        console.log(title)
-    }
-}
+    } catch (err) {
+        console.log('❌ PR Title check failed');
+        throw(err);
+    };
+};
 
-main()
+run();
