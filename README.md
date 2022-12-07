@@ -14,7 +14,7 @@ on:
 
 jobs:
   linter:
-    name: PR Linter Test
+    name: Pull Request title check
     runs-on: ubuntu-latest
 
     steps:
