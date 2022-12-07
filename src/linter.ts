@@ -41,4 +41,3 @@ function extractContext(title: string): [string, string, string] {
         throw(err)
     };
 };
-

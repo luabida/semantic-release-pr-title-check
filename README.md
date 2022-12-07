@@ -53,4 +53,3 @@ jobs:
 |**refactor**|A code change that neither fixes a bug nor adds a feature|
 |**test**|Adding missing tests or correcting existing tests|
 |**BREAKING CHANGE**|A code change that breaks the current version|
-
