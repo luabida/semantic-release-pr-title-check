@@ -1,4 +1,5 @@
 name: PR Title Linter
+
 on:
   pull_request:
     types: [opened, reopened, edited, synchronize]
