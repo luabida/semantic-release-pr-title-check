@@ -3,8 +3,25 @@
 Checks for [Angular commit message format](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-format) in the Pull Request Title.
 
 ## Usage
-```
+``` yaml
+# Include this step into your `.github/workflows` directory:
+name: PR Title Linter
+on:
+  pull_request:
+    types: [opened, reopened, edited, synchronize]
+    branches:
+      - main
 
+jobs:
+  linter:
+    name: PR Linter Test
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Semantic Release PR Title Check
+        uses: osl-incubator/semantic-release-pr-title-check@v1.0.0
 
 ```
 
