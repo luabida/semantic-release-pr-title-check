@@ -10,4 +10,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - name: Semantic Release PT Title Check
-      uses: luabida/semantic-release-pr-title-check@v0.1.0
+      uses: luabida/semantic-release-pr-title-check@v0.1.1
