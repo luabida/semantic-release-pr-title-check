@@ -45,6 +45,7 @@ jobs:
 |*tag*|*Usage*|
 |:---:|:---------:|
 |**build**|Changes that affect the build system or external dependencies|
+|**chore**|A minor change and/or daily work activity|
 |**ci**|Changes to CI configuration files and scripts|
 |**docs**|Documentation only changes|
 |**feat**|A new feature|
