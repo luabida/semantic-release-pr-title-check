@@ -1,0 +1,13 @@
+name: PR Title Linter
+on:
+  pull_request:
+    types: [assigned, unassigned, labeled, unlabeled, opened, reopened, edited, synchronize]
+    branches:
+      - main
+
+jobs:
+  pr-linter:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Semantic Release PT Title Check
+      uses: luabida/semantic-release-pr-title-check@v0.1.0

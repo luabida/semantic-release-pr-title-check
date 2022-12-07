@@ -1,7 +1,7 @@
 import { context } from '@actions/github'
 import { linter } from './linter'
 
-function run() {
+export function run() {
     try {
         const pullRequestTitle: string = context.payload.pull_request?.title;
 
