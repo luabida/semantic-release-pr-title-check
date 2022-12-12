@@ -1,3 +1,7 @@
+import * as core from "@actions/core";
+
+
+const preset = core.getInput('convention-name');
 const allowedTags = [
     "build",
     "ci",
@@ -8,7 +12,6 @@ const allowedTags = [
     "perf",
     "refactor",
     "test",
-    "BREAKING CHANGE"
 ];
 
 export function linter(title: string) {
@@ -22,7 +25,12 @@ export function linter(title: string) {
 };
 
 function extractContext(title: string): [string, string, string] {
-    const regEx: RegExp = /(^[\w\s?]+)(\(.+\):\s)([^A-Z\W].*[^.]$)/g;
+
+    if (preset === 'conventionalcommits') {
+        var regEx: RegExp = /(^[\w\s?]+)(\(.+\)!:\s)([^A-Z\W].*[^.]$)/g;
+    } else {
+        var regEx: RegExp = /(^[\w\s?]+)(\(.+\):\s)([^A-Z\W].*[^.]$)/g;
+    };    
 
     var matches = title.match(regEx) || [];
 

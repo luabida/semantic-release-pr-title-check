@@ -1,6 +1,11 @@
 name: 'Semantic Release PR Title Check'
 author: 'Luã Bida Vacaro'
 description: 'Checks for Angular commit message format in the Pull Request title'
+inputs:
+  convention-name:
+    description: 'Commit Analyzer preset. Accepted: [angular, defaultcommits]'
+    required: false
+    default: 'angular'
 branding:
   icon: check-circle
   color: green
