@@ -16,3 +16,5 @@ jobs:
 
       - name: Semantic Release PR Title Check
         uses: osl-incubator/semantic-release-pr-title-check@v1.0.0
+        with:
+          convention-name: 'conventionalcommits'
