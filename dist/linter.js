@@ -48,6 +48,7 @@ function linter(title) {
 exports.linter = linter;
 ;
 function extractContext(title) {
+    console.log(preset);
     if (preset === 'conventionalcommits') {
         var regEx = /(^[\w\s?]+)(\(.+\)!:\s)([^A-Z\W].*[^.]$)/g;
     }
@@ -55,7 +56,9 @@ function extractContext(title) {
         var regEx = /(^[\w\s?]+)(\(.+\):\s)([^A-Z\W].*[^.]$)/g;
     }
     ;
+    console.log(regEx);
     var matches = title.match(regEx) || [];
+    console.log(matches);
     try {
         let tag = matches.map(e => e.replace(regEx, '$1'))[0];
         let subj = matches.map(e => e.replace(regEx, '$2'))[0];
