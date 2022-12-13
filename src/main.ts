@@ -5,7 +5,7 @@ import * as linter from './linter'
 export function run() {
     try {
         const pullRequestTitle: string = context.payload.pull_request?.title;
-
+        console.log(pullRequestTitle)
         if (!pullRequestTitle) {
             throw("Title not found");
         };
