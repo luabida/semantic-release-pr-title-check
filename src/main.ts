@@ -1,5 +1,5 @@
 import { context } from '@actions/github'
-import { linter } from './linter'
+import * as linter from './linter'
 
 
 export function run() {
@@ -10,7 +10,7 @@ export function run() {
             throw("Title not found");
         };
 
-        linter(pullRequestTitle);
+        linter.linter(pullRequestTitle);
 
     } catch (err) {
         console.log('❌ PR Title check failed');
