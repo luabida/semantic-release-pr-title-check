@@ -43,23 +43,17 @@ function linter(title) {
         throw ("❌ Incorrect PR tag.");
     }
     ;
-    console.log(tag);
     console.log("✅ PR title is correct!");
 }
 exports.linter = linter;
 ;
 function extractContext(title) {
+    let regEx = /(^[\w\s?]+)(\(.+\):\s)([^A-Z\W].*[^.]$)/g;
     if (preset === 'conventionalcommits') {
-        var regEx = /(^[\w\s?]+)(\(.+\)!:\s)([^A-Z\W].*[^.]$)/g;
-    }
-    else {
-        var regEx = /(^[\w\s?]+)(\(.+\):\s)([^A-Z\W].*[^.]$)/g;
+        regEx = /(^[\w\s?]+)(\(.+\)!:\s)([^A-Z\W].*[^.]$)/g;
     }
     ;
-    console.log(preset);
-    console.log(regEx);
-    var matches = title.match(regEx) || [];
-    console.log(matches);
+    let matches = title.match(regEx) || [];
     try {
         let tag = matches.map(e => e.replace(regEx, '$1'))[0];
         let subj = matches.map(e => e.replace(regEx, '$2'))[0];
@@ -71,6 +65,7 @@ function extractContext(title) {
         return [tag, subj, msg];
     }
     catch (err) {
+        console.log(err);
         throw (err);
     }
     ;

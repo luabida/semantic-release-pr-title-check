@@ -30,7 +30,6 @@ function run() {
     var _a;
     try {
         const pullRequestTitle = (_a = github_1.context.payload.pull_request) === null || _a === void 0 ? void 0 : _a.title;
-        console.log(pullRequestTitle);
         if (!pullRequestTitle) {
             throw ("Title not found");
         }
