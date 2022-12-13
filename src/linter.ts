@@ -30,7 +30,8 @@ function extractContext(title: string): [string, string, string] {
         var regEx: RegExp = /(^[\w\s?]+)(\(.+\)!:\s)([^A-Z\W].*[^.]$)/g;
     } else {
         var regEx: RegExp = /(^[\w\s?]+)(\(.+\):\s)([^A-Z\W].*[^.]$)/g;
-    };    
+    };   
+     
     console.log(preset)
     console.log(regEx)
     var matches = title.match(regEx) || [];
