@@ -1,7 +1,7 @@
 import * as core from "@actions/core";
 
 
-const preset = core.getInput('convention-name');
+const preset: string = core.getInput('convention-name');
 const allowedTags = [
     "build",
     "ci",
@@ -20,17 +20,18 @@ export function linter(title: string) {
     if (!allowedTags.includes(tag)) {
         throw("❌ Incorrect PR tag.")
     };
-
+    console.log(tag)
     console.log("✅ PR title is correct!");
 };
 
 function extractContext(title: string): [string, string, string] {
-    console.log(preset)
+
     if (preset === 'conventionalcommits') {
         var regEx: RegExp = /(^[\w\s?]+)(\(.+\)!:\s)([^A-Z\W].*[^.]$)/g;
     } else {
         var regEx: RegExp = /(^[\w\s?]+)(\(.+\):\s)([^A-Z\W].*[^.]$)/g;
     };    
+    console.log(preset)
     console.log(regEx)
     var matches = title.match(regEx) || [];
     console.log(matches)

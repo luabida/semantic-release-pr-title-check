@@ -43,12 +43,12 @@ function linter(title) {
         throw ("❌ Incorrect PR tag.");
     }
     ;
+    console.log(tag);
     console.log("✅ PR title is correct!");
 }
 exports.linter = linter;
 ;
 function extractContext(title) {
-    console.log(preset);
     if (preset === 'conventionalcommits') {
         var regEx = /(^[\w\s?]+)(\(.+\)!:\s)([^A-Z\W].*[^.]$)/g;
     }
@@ -56,6 +56,7 @@ function extractContext(title) {
         var regEx = /(^[\w\s?]+)(\(.+\):\s)([^A-Z\W].*[^.]$)/g;
     }
     ;
+    console.log(preset);
     console.log(regEx);
     var matches = title.match(regEx) || [];
     console.log(matches);
