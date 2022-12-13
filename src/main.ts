@@ -14,6 +14,7 @@ export function run() {
 
     } catch (err) {
         console.log('❌ PR Title check failed');
+        console.log(err)
         throw(err);
     };
 };
