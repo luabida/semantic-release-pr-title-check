@@ -3,7 +3,7 @@ author: 'Luã Bida Vacaro'
 description: 'Checks for Angular commit message format in the Pull Request title'
 inputs:
   convention-name:
-    description: 'Commit Analyzer preset. Accepted: [angular, defaultcommits]'
+    description: 'Commit Analyzer preset. Accepted: [angular, conventionalcommits]'
     required: false
     default: 'angular'
 branding:
