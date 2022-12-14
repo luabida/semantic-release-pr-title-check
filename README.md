@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Semantic Release PR Title Check
-        uses: osl-incubator/semantic-release-pr-title-check@v1.4.0
+        uses: osl-incubator/semantic-release-pr-title-check@v1.4.1
         with:                                   #Optional
           convention-name: conventionalcommits  #Default: angular
 ```
