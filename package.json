@@ -1,6 +1,6 @@
 {
   "name": "semantic-release-pr-title-check",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "description": "Checks for [Angular commit message format](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-format) in the Pull Request Title.",
   "main": "build/main.js",
   "directories": {
