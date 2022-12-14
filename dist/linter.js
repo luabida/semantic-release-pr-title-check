@@ -37,7 +37,7 @@ function linter(title) {
         "refactor",
         "test",
     ];
-    let preset = core.getInput('convention-name');
+    let preset = core.getInput(`convention-name`, { required: false }).toLowerCase();
     try {
         let splitTitle = extractContext(title, preset);
         let tag = splitTitle[0];

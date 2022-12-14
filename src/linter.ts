@@ -15,7 +15,7 @@ export function linter(title: string) {
         "test",
     ];
 
-    let preset: string = core.getInput('convention-name');
+    let preset: string = core.getInput(`convention-name`, { required: false }).toLowerCase();
 
     try {
         let splitTitle = extractContext(title, preset);
