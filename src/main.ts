@@ -1,21 +1,19 @@
 import { context } from '@actions/github'
-import * as linter from './linter'
+import { linter } from './linter'
 
 
 export function run() {
     try {
-        const pullRequestTitle: string = context.payload.pull_request?.title;
+        let pullRequestTitle: string = context.payload.pull_request?.title;
 
         if (!pullRequestTitle) {
-            throw("Title not found");
+            throw("- Title not found");
         };
 
-        linter.linter(pullRequestTitle);
+        linter(pullRequestTitle);
 
     } catch (err) {
-        console.log('❌ PR Title check failed');
-        console.log(err)
-        throw(err);
+        console.log(`❌ PR Title linter failed\n${ err }`);
     };
 };
 

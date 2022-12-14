@@ -22,21 +22,22 @@ jobs:
       - uses: actions/checkout@v3
 
       - name: Semantic Release PR Title Check
-        uses: osl-incubator/semantic-release-pr-title-check@v1.2.1
-
+        uses: osl-incubator/semantic-release-pr-title-check@v1.3.0
+        with:                                   #Optional
+          convention-name: conventionalcommits  #Default: angular
 ```
 
 
 ## PR Title Format
 ```
-<type>(<scope>): <short summary>
+<tag>(<scope>): <short summary>
   │       │             │
   │       │             └─> Title message. Not capitalized. 
   │       │                 No period at the end.
   │       │
   │       └─> The specific subject of the PR. Can be anything.
   │
-  └─> build|chore|ci|docs|feat|fix|perf|refactor|test|BREAKING CHANGE
+  └─> build|chore|ci|docs|feat|fix|perf|refactor|test
 ```
 
 ## Tags

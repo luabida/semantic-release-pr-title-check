@@ -25,7 +25,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.linter = void 0;
 const core = __importStar(require("@actions/core"));
-const preset = core.getInput('convention-name');
 const allowedTags = [
     "build",
     "ci",
@@ -38,35 +37,37 @@ const allowedTags = [
     "test",
 ];
 function linter(title) {
-    let [tag, subj, msg] = extractContext(title);
-    if (!allowedTags.includes(tag)) {
-        throw ("❌ Incorrect PR tag.");
+    let preset = core.getInput('convention-name');
+    try {
+        let splitTitle = extractContext(title, preset);
+        let tag = splitTitle[0];
+        if (!allowedTags.includes(tag)) {
+            throw (`- Incorrect PR tag: "${tag}" is not accepted by Semantic-Release`);
+        }
+        ;
+        console.log("✅ PR title is correct!");
+    }
+    catch (err) {
+        console.log("❌ Incorrect PR title.");
+        throw (err);
     }
     ;
-    console.log("✅ PR title is correct!");
 }
 exports.linter = linter;
 ;
-function extractContext(title) {
-    let regEx = /(^[\w\s?]+)(\(.+\):\s)([^A-Z\W].*[^.]$)/g;
-    if (preset === 'conventionalcommits') {
-        regEx = /(^[\w\s?]+)(\(.+\)!:\s)([^A-Z\W].*[^.]$)/g;
-    }
-    ;
-    let matches = title.match(regEx) || [];
+function extractContext(title, preset) {
+    let regEx = /(^[\w\s?]+)(\(.+\)(!?):\s)([^A-Z\W].*[^.]$)/g;
+    let matches = title.matchAll(regEx);
     try {
-        let tag = matches.map(e => e.replace(regEx, '$1'))[0];
-        let subj = matches.map(e => e.replace(regEx, '$2'))[0];
-        let msg = matches.map(e => e.replace(regEx, '$3'))[0];
-        if (!tag || !subj || !msg) {
-            throw ("❌ Incorrect Title.");
+        let results = Array.from(matches)[0].filter(Boolean).splice(1);
+        if (results.length === 4 && preset !== 'conventionalcommits') {
+            throw ("- To use '!' in the title, set preset as `convenvionalcommits`");
         }
         ;
-        return [tag, subj, msg];
+        return results;
     }
     catch (err) {
-        console.log(err);
-        throw (err);
+        throw (`${err}\n- "${title}" format is incorrect. Please use Angular Commit Message Conventions`);
     }
     ;
 }
