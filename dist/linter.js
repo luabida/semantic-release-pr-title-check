@@ -25,18 +25,18 @@ var __importStar = (this && this.__importStar) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.linter = void 0;
 const core = __importStar(require("@actions/core"));
-const allowedTags = [
-    "build",
-    "ci",
-    "chore",
-    "docs",
-    "feat",
-    "fix",
-    "perf",
-    "refactor",
-    "test",
-];
 function linter(title) {
+    let allowedTags = [
+        "build",
+        "ci",
+        "chore",
+        "docs",
+        "feat",
+        "fix",
+        "perf",
+        "refactor",
+        "test",
+    ];
     let preset = core.getInput('convention-name');
     try {
         let splitTitle = extractContext(title, preset);
@@ -60,7 +60,7 @@ function extractContext(title, preset) {
     let matches = title.matchAll(regEx);
     try {
         let results = Array.from(matches)[0].filter(Boolean).splice(1);
-        if (results.length === 4 && preset !== 'conventionalcommits') {
+        if (results.length === 4 && preset !== `conventionalcommits`) {
             throw ("- To use '!' in the title, set preset as `convenvionalcommits`");
         }
         ;

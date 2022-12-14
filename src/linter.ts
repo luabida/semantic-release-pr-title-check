@@ -1,19 +1,19 @@
 import * as core from "@actions/core";
 
-const allowedTags = [
-    "build",
-    "ci",
-    "chore",
-    "docs",
-    "feat",
-    "fix",
-    "perf",
-    "refactor",
-    "test",
-];
-
 
 export function linter(title: string) {
+
+    let allowedTags = [
+        "build",
+        "ci",
+        "chore",
+        "docs",
+        "feat",
+        "fix",
+        "perf",
+        "refactor",
+        "test",
+    ];
 
     let preset: string = core.getInput('convention-name');
 
@@ -43,7 +43,7 @@ function extractContext(title: string, preset: string): string[] {
     try {
         let results = Array.from(matches)[0].filter(Boolean).splice(1);
 
-        if (results.length === 4 && preset !== 'conventionalcommits') {
+        if (results.length === 4 && preset !== `conventionalcommits`) {
             throw("- To use '!' in the title, set preset as `convenvionalcommits`");
         };
 
