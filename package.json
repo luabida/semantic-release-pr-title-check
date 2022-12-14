@@ -1,13 +1,13 @@
 {
   "name": "semantic-release-pr-title-check",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Checks for [Angular commit message format](https://github.com/angular/angular/blob/main/CONTRIBUTING.md#-commit-message-format) in the Pull Request Title.",
   "main": "build/main.js",
   "directories": {
     "test": "tests"
   },
   "scripts": {
-    "build": "tsc -p ./tsconfig.build.json",
+    "build": "tsc -p ./tsconfig.build.json && ncc build src/main.ts --license licenses.txt",
     "dev": "ts-node-dev --respawn --ignore-watch node_modules --no-notify src/main.ts"
   },
   "repository": {
