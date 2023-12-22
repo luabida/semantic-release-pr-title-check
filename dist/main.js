@@ -15,6 +15,7 @@ function run() {
     }
     catch (err) {
         console.log(`❌ PR Title linter failed\n${err}`);
+        throw (err);
     }
     ;
 }

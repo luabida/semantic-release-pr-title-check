@@ -9574,7 +9574,7 @@ function extractContext(title, preset) {
     try {
         let results = Array.from(matches)[0].filter(Boolean).splice(1);
         if (results.length === 4 && preset !== `conventionalcommits`) {
-            throw ("- To use '!' in the title, set preset as `convenvionalcommits`");
+            throw ("- To use '!' in the title, set preset as `conventionalcommits`");
         }
         ;
         return results;
@@ -9785,6 +9785,7 @@ function run() {
     }
     catch (err) {
         console.log(`❌ PR Title linter failed\n${err}`);
+        throw (err);
     }
     ;
 }
