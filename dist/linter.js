@@ -42,14 +42,13 @@ function linter(title) {
         let splitTitle = extractContext(title, preset);
         let tag = splitTitle[0];
         if (!allowedTags.includes(tag)) {
-            throw (`- Incorrect PR tag: "${tag}" is not accepted by Semantic-Release`);
+            core.setFailed(`- Incorrect PR tag: "${tag}" is not accepted by Semantic-Release`);
         }
         ;
         console.log("✅ PR title is correct!");
     }
     catch (err) {
-        console.log("❌ Incorrect PR title.");
-        throw (err);
+        core.setFailed("❌ Incorrect PR title.");
     }
     ;
 }
@@ -61,13 +60,14 @@ function extractContext(title, preset) {
     try {
         let results = Array.from(matches)[0].filter(Boolean).splice(1);
         if (results.length === 4 && preset !== `conventionalcommits`) {
-            throw ("- To use '!' in the title, set preset as `convenvionalcommits`");
+            core.setFailed("- To use '!' in the title, set preset as `conventionalcommits`");
         }
         ;
         return results;
     }
     catch (err) {
-        throw (`${err}\n- "${title}" format is incorrect. Please use Angular Commit Message Conventions`);
+        core.setFailed(`${err}\n- "${title}" format is incorrect. Please use Angular Commit Message Conventions`);
+        throw (err);
     }
     ;
 }
